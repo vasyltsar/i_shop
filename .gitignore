@@ -1,5 +1,5 @@
 /myvenv
-db.sqlite
+db.sqlite3
 .pytest_cache/
 __pycache__/
 .idea/
