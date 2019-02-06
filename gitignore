@@ -1,0 +1,4 @@
+/myvenv
+db.sqlite
+.pytest_cache/
+__pycache__/
