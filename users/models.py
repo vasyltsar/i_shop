@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager
 
-# Create your models here.
-
 
 class CustomUserManager(UserManager):
     pass
@@ -15,7 +13,6 @@ class User(AbstractUser):
         (RETAILER, 'retailer'),
         (WHOLESALER, 'wholesaler')
     )
-
     email = models.EmailField(null=False, blank=False, db_index=True, unique=True)
     phone_number = models.CharField(max_length=15, null=False, blank=False)
     client_type = models.CharField(choices=CLIENT_TYPE_CHOICES, max_length=10, default=RETAILER)
@@ -28,6 +25,3 @@ class User(AbstractUser):
     )
 
     objects = CustomUserManager()
-
-
-

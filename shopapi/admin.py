@@ -1,5 +1,22 @@
-from shopapi.models import Product, ProductType
+from shopapi.models import Product, ProductType, ProductOrder, ShippingType, PaymentType
 from django.contrib import admin
+
+
+class PaymentTypeAdmin(admin.ModelAdmin):
+    model = PaymentType
+    fields = ('name',)
+
+
+class ShippingTypeAdmin(admin.ModelAdmin):
+    model = ShippingType
+    fields = ('name',)
+
+
+class ProductOrderAdmin(admin.ModelAdmin):
+    model = ProductOrder
+    fields = ('phone_number', 'user_name', 'user_surname', 'user_middle_name',
+              'user_email', 'callback', 'amount', 'status')
+
 
 class ProductTypeAdmin(admin.ModelAdmin):
     model = ProductType
@@ -26,3 +43,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(ProductType, ProductTypeAdmin)
+admin.site.register(ProductOrder, ProductOrderAdmin)
+admin.site.register(ShippingType, ShippingTypeAdmin)
+admin.site.register(PaymentType, PaymentTypeAdmin)
+
