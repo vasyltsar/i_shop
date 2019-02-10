@@ -16,6 +16,11 @@ class ProductOrderAdmin(admin.ModelAdmin):
     model = ProductOrder
     fields = ('phone_number', 'user_name', 'user_surname', 'user_middle_name',
               'user_email', 'callback', 'amount', 'status')
+    readonly_fields = ('phone_number', 'user_name', 'user_surname', 'user_middle_name',
+                       'user_email', 'callback', 'amount')
+    list_display = ('phone_number', 'user_name', 'user_surname', 'user_middle_name',
+                    'user_email', 'callback', 'amount', 'status')
+    list_filter = ('status', )
 
 
 class ProductTypeAdmin(admin.ModelAdmin):

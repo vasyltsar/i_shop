@@ -63,7 +63,7 @@ class ProductOrder(models.Model):
     )
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(choices=STATE_CHOICES, max_length=255, null=False, blank=False)
+    status = models.CharField(choices=STATE_CHOICES, max_length=255, null=False, blank=False, default=NEW)
     amount = models.IntegerField(default=1)
     callback = models.BooleanField(default=False)
     phone_number = models.CharField(max_length=15, null=False, blank=False)

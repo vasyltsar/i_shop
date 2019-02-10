@@ -2,6 +2,6 @@
 {{ books }}
 <ul>
 {% for product in products %}
-<li>{{ product.name }} -- {{ product.price }}</li>
+<li>{{ product.name }} -- {{ product.price }}</li><a href="{% url 'buy_product' product.id %}">Buy</a>
 {% endfor %}
 </ul>
