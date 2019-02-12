@@ -1,0 +1,15 @@
+{% extends './base.html' %}
+
+{% block content %}
+<h1>{{ product.name }}</h1>
+<h6>{{ product.description }}</h6>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form method="POST" class="post-form">{% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit" class="save btn btn-default">Save</button>
+</form>
+{% endblock %}
