@@ -1,7 +1,11 @@
+{% extends './base.html' %}
+
+{% block content %}
 <h1>Product list</h1>
 {{ books }}
-<ul>
+<ul style="left: 3%">
 {% for product in products %}
-<li>{{ product.name }} -- {{ product.price }}</li><a href="{% url 'buy_product' product.id %}">Buy</a>
+<li> *** {{ product.product_type }} *** {{ product.name }} -- {{ product.price }}</li><a href="{% url 'buy_product' product.id %}">Buy</a>
 {% endfor %}
 </ul>
+{% endblock %}

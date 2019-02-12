@@ -1,3 +1,6 @@
+{% extends './base.html' %}
+
+{% block content %}
 <h1>{{ product.name }}</h1>
 <h6>{{ product.description }}</h6>
 
@@ -9,3 +12,4 @@
     </table>
     <button type="submit" class="save btn btn-default">Save</button>
 </form>
+{% endblock %}
