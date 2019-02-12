@@ -3,14 +3,8 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-    <div style="margin-left: 3%">
+    <div class="content">
         <p><h2>Hi {{ user.username }}</h2>
-        <p><a style="" href="{% url 'products' %}">Products</a></p>
-        <p><a href="{% url 'logout' %}">Log out</a></p>
-    {% else %}
-        <p><a style="" href="{% url 'products' %}">Products</a></p>
-        <p><a href="{% url 'signup' %}">Sign Up</a></p>
-        <p><a href="{% url 'login' %}">Log In </a></p>
     </div>
     {% endif %}
 {% endblock %}
