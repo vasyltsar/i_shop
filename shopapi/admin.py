@@ -31,6 +31,7 @@ class ProductTypeAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     model = Product
     fields = ('name', 'description', 'price', 'available', 'state', 'product_type')
+    list_filter = ('product_type',)
 
     def save_model(self, request, obj, form, change):
         obj.created_by = request.user

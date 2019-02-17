@@ -1,8 +1,11 @@
 from django.views.generic import TemplateView, ListView, FormView, View
-from .models import Product, ProductOrder
+from .models import Product, ProductOrder, ProductType
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .forms import ProductOrderForm
+from django.shortcuts import get_object_or_404
+
+
 
 
 class MyView(LoginRequiredMixin, View):
@@ -20,7 +23,19 @@ class ProductPageView(ListView):
 
     def get_queryset(self):
         """Return product list."""
-        return Product.objects.filter(available=True).order_by('-created_at')[:25]
+        name = self.request.GET.get('name')
+        product_type_id = self.request.GET.get('product_type_id')
+        gs = Product.objects.filter(available=True)
+        if name:
+            gs = gs.filter(name__icontains=name)
+        if product_type_id:
+            gs = gs.filter(product_type_id=product_type_id)
+        return gs.order_by('-created_at')[:25]
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['product_types'] = ProductType.objects.all()
+        return data
 
 
 class ProductBuyPageView(FormView):

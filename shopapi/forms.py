@@ -1,6 +1,5 @@
 from django import forms
-from .models import ProductOrder
-
+from .models import ProductOrder, ProductType
 
 max_order_amount = 10
 
@@ -15,6 +14,12 @@ class ProductOrderForm(forms.ModelForm):
 
     class Meta:
         model = ProductOrder
-        fields = ['user_name', 'user_middle_name', 'user_surname', 'user_email', 'callback', 'amount',
+        fields = ['user_name', 'user_middle_name', 'user_surname',
+                  'user_email', 'callback', 'amount',
                   'payment_type', 'shipping_type']
 
+
+class ProductTypeForm(forms.ModelForm):
+    class Meta:
+        model = ProductType
+        fields = ['name']

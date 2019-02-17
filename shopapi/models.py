@@ -33,7 +33,6 @@ class Product(models.Model):
         (REFURBISHED, 'refurbished'),
         (REVALUATED, 'revaluated')
     )
-
     name = models.CharField(max_length=250, null=False, blank=False)  # обовязкове поле null=False, blank=False
     description = models.TextField(null=False, blank=False)
     price = models.DecimalField(max_digits=15, decimal_places=2, null=False, blank=False)

@@ -1,12 +1,28 @@
 {% extends './base.html' %}
-{% load static %}
 
 {% block content %}
-<h1>Product list</h1>
-{{ books }}
-<ul style="left: 3%">
-{% for product in products %}
-<li> *** {{ product.product_type }} *** {{ product.name }} -- {{ product.price }}</li><a href="{% url 'buy_product' product.id %}">Buy</a>
-{% endfor %}
-</ul>
+    <div>
+        <h1>Product type list</h1>
+        <ul>
+            {% for product_type in product_types %}
+                <li>
+                    <a href="{% url 'products' %}?product_type_id={{ product_type.id }}">{{ product_type.name }}</a>
+                </li>
+            {% endfor %}
+            <li>
+                <a href="{% url 'products' %}">view all</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h1>Product list</h1>
+        <ul style="left: 3%">
+            {% for product in products %}
+                <li> *** {{ product.product_type }} ***
+                    <h3>{{ product.name }}</h3>
+                    <h5>price {{ product.price }}grn</h5></li>
+                <a href="{% url 'buy_product' product.id %}">Buy</a>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
