@@ -59,3 +59,13 @@ class ProductBuyPageView(FormView):
         )
         # here we can send a massage to user regarding his order (SMS for example)
         return super(ProductBuyPageView, self).form_valid(form)
+
+    def get_initial(self):
+        initial = super(ProductBuyPageView, self).get_initial()
+        if self.request.user.is_authenticated:
+            print(self.request)
+            initial['user_name'] = self.request.user.first_name
+            initial['user_email'] = self.request.user.email
+            initial['user_surname'] = self.request.user.last_name
+            initial['phone_number'] = self.request.user.phone_number
+        return initial
