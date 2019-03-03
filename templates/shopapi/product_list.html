@@ -1,8 +1,12 @@
 {% extends './base.html' %}
+{% load static %}
+
+<link rel='stylesheet' href="{% static 'shopapi/product_list.css' %}">
+
 
 {% block content %}
-    <div>
-        <h1>Product type list</h1>
+    <div class="block_type">
+        <h3>Product type list</h3>
         <ul>
             {% for product_type in product_types %}
                 <li>
@@ -14,9 +18,9 @@
             </li>
         </ul>
     </div>
-    <div>
+    <div class="block_product">
         <h1>Product list</h1>
-        <ul style="left: 3%">
+        <ul >
             {% for product in products %}
                 <li> *** {{ product.product_type }} ***
                     <h3>{{ product.name }}</h3>

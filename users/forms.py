@@ -15,3 +15,10 @@ class CustomUserChangeForm(UserChangeForm):
         model = User
         fields = ('username', 'first_name', 'last_name', 'is_staff', 'is_active',
                   'phone_number', 'client_type')
+
+
+class EditUserCreationForm(UserCreationForm):
+
+    class Meta(UserCreationForm):
+        model = User
+        fields = ('first_name', 'last_name', 'phone_number')

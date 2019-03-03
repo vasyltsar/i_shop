@@ -3,9 +3,6 @@ from .models import Product, ProductOrder, ProductType
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .forms import ProductOrderForm
-from django.shortcuts import get_object_or_404
-
-
 
 
 class MyView(LoginRequiredMixin, View):
@@ -63,7 +60,6 @@ class ProductBuyPageView(FormView):
     def get_initial(self):
         initial = super(ProductBuyPageView, self).get_initial()
         if self.request.user.is_authenticated:
-            print(self.request)
             initial['user_name'] = self.request.user.first_name
             initial['user_email'] = self.request.user.email
             initial['user_surname'] = self.request.user.last_name

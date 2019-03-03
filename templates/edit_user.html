@@ -1,0 +1,12 @@
+{% extends './shopapi/base.html' %}
+
+{% block title %}Edit user info{% endblock %}
+
+{% block content %}
+  <h2>Edit user info</h2>
+  <form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update">
+</form>
+</form>
+{% endblock %}
